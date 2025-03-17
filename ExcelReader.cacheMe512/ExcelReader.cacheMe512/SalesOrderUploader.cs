@@ -60,13 +60,26 @@ namespace ExcelReader.cacheMe512
                             salesOrders.Add(order);
                         }
 
-                        // Insert into the database
                         context.SalesOrders.AddRange(salesOrders);
                         context.SaveChanges();
                     }
                 }
 
                 Console.WriteLine("Upload successful. Records inserted: " + salesOrders.Count);
+
+                var tableData = salesOrders.Take(10)
+                                           .Select(order => new
+                                           {
+                                               order.SalesOrderNumber,
+                                               order.OrderDate,
+                                               TotalDue = order.TotalDue.ToString("F2"),
+                                               order.CustomerID,
+                                               order.Status
+                                           })
+                                           .Cast<object>()
+                                           .ToList();
+
+                TableVisualizationEngine.ShowTable(tableData, "Recent Sales Orders");
             }
             catch (Exception ex)
             {
