@@ -40,7 +40,7 @@ namespace ExcelReader.cacheMe512.Migrations
                     Freight = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
                     TotalDue = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    rowguid = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    Rowguid = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>

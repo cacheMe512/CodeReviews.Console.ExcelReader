@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExcelReader.cacheMe512.Migrations
 {
     [DbContext(typeof(SalesOrderContext))]
-    [Migration("20250315132930_InitialCreate")]
+    [Migration("20250317161947_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -34,18 +34,15 @@ namespace ExcelReader.cacheMe512.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SalesOrderID"));
 
                     b.Property<string>("AccountNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("BillToAddressID")
+                    b.Property<int?>("BillToAddressID")
                         .HasColumnType("int");
 
                     b.Property<string>("Comment")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CreditCardApprovalCode")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("CreditCardID")
@@ -54,34 +51,34 @@ namespace ExcelReader.cacheMe512.Migrations
                     b.Property<int?>("CurrencyRateID")
                         .HasColumnType("int");
 
-                    b.Property<int>("CustomerID")
+                    b.Property<int?>("CustomerID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DueDate")
+                    b.Property<DateTime?>("DueDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<decimal>("Freight")
+                    b.Property<decimal?>("Freight")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<DateTime>("ModifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("OnlineOrderFlag")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("OrderDate")
+                    b.Property<DateTime?>("OrderDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("PurchaseOrderNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte>("RevisionNumber")
+                    b.Property<byte?>("RevisionNumber")
                         .HasColumnType("tinyint");
 
+                    b.Property<Guid?>("Rowguid")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("SalesOrderNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("SalesPersonID")
@@ -90,29 +87,26 @@ namespace ExcelReader.cacheMe512.Migrations
                     b.Property<DateTime?>("ShipDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ShipMethodID")
+                    b.Property<int?>("ShipMethodID")
                         .HasColumnType("int");
 
-                    b.Property<int>("ShipToAddressID")
+                    b.Property<int?>("ShipToAddressID")
                         .HasColumnType("int");
 
-                    b.Property<byte>("Status")
+                    b.Property<byte?>("Status")
                         .HasColumnType("tinyint");
 
-                    b.Property<decimal>("SubTotal")
+                    b.Property<decimal?>("SubTotal")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal>("TaxAmt")
+                    b.Property<decimal?>("TaxAmt")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int?>("TerritoryID")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("TotalDue")
+                    b.Property<decimal?>("TotalDue")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<Guid>("rowguid")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("SalesOrderID");
 

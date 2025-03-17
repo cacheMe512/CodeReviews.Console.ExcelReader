@@ -31,6 +31,6 @@ public class SalesOrder
     public decimal? TotalDue { get; set; }
 
     public string? Comment { get; set; }
-    public Guid? rowguid { get; set; }
+    public Guid? Rowguid { get; set; }
     public DateTime? ModifiedDate { get; set; }
 }

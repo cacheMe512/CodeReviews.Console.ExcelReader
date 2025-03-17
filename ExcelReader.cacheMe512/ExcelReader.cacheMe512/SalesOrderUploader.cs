@@ -53,7 +53,7 @@ namespace ExcelReader.cacheMe512
                                 Freight = Convert.ToDecimal(worksheet.Cells[row, 21].Value),
                                 TotalDue = Convert.ToDecimal(worksheet.Cells[row, 22].Value),
                                 Comment = worksheet.Cells[row, 23].Value?.ToString(),
-                                rowguid = Guid.Parse(worksheet.Cells[row, 24].Value?.ToString() ?? Guid.NewGuid().ToString()),
+                                Rowguid = Guid.Parse(worksheet.Cells[row, 24].Value?.ToString() ?? Guid.NewGuid().ToString()),
                                 ModifiedDate = Convert.ToDateTime(worksheet.Cells[row, 25].Value)
                             };
 
