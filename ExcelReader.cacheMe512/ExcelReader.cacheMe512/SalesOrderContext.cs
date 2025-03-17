@@ -26,4 +26,16 @@ internal class SalesOrderContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
     }
+
+    public static void ResetDatabase()
+    {
+        using (var context = new SalesOrderContext())
+        {
+            Console.WriteLine("Deleting existing database...");
+            context.Database.EnsureDeleted();
+
+            Console.WriteLine("Creating new database...");
+            context.Database.EnsureCreated();
+        }
+    }
 }

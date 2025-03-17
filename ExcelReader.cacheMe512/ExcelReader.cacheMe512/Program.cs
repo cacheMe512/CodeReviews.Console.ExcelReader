@@ -1,5 +1,8 @@
 ﻿using ExcelReader.cacheMe512;
 
+Console.WriteLine("Initializing Sales Order Application...");
+SalesOrderContext.ResetDatabase();
+
 string currentDirectory = Directory.GetCurrentDirectory();
 string projectDirectory = Directory.GetParent(currentDirectory)?.Parent?.Parent?.FullName;
 

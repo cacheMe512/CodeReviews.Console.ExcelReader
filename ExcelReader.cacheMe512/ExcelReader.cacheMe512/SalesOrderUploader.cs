@@ -72,7 +72,7 @@ namespace ExcelReader.cacheMe512
                                            {
                                                order.SalesOrderNumber,
                                                order.OrderDate,
-                                               TotalDue = order.TotalDue.ToString("F2"),
+                                               TotalDue = order.TotalDue.HasValue ? order.TotalDue.Value.ToString("F2") : "N/A",
                                                order.CustomerID,
                                                order.Status
                                            })
